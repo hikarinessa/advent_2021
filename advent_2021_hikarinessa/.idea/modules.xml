@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../advent_2020/advent_2020_hikarinessa/.idea/advent_2020_hikarinessa.iml" filepath="$PROJECT_DIR$/../../advent_2020/advent_2020_hikarinessa/.idea/advent_2020_hikarinessa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/advent_2021_hikarinessa.iml" filepath="$PROJECT_DIR$/.idea/advent_2021_hikarinessa.iml" />
+    </modules>
+  </component>
+</project>
