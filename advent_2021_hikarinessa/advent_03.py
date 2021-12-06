@@ -65,9 +65,8 @@ def find_rates_two(input):
                 if k is not None and int(k[i]) == 1:
                     oxygen_generator_rating[ind] = None
 
-        oxygen_generator_cleanup = [k for k in oxygen_generator_rating if k]
-        oxygen_generator_rating = oxygen_generator_cleanup
-        if len(oxygen_generator_cleanup) == 1:
+        oxygen_generator_rating = [k for k in oxygen_generator_rating if k]
+        if len(oxygen_generator_rating) == 1:
             break
     oxygen_generator_rating = int(oxygen_generator_rating[0], 2)
     # print("oxygen_generator_rating", oxygen_generator_rating)
@@ -87,13 +86,11 @@ def find_rates_two(input):
                 if k is not None and int(k[i]) == 0:
                     co2_scrubber_rating[ind] = None
 
-        co2_scrubber_cleanup = [k for k in co2_scrubber_rating if k]
-        co2_scrubber_rating = co2_scrubber_cleanup
+        co2_scrubber_rating = [k for k in co2_scrubber_rating if k]
         if len(co2_scrubber_rating) == 1:
             break
     co2_scrubber_rating = int(co2_scrubber_rating[0], 2)
     # print("co2_scrubber_rating", co2_scrubber_rating)
-
 
     life_support_rating = oxygen_generator_rating * co2_scrubber_rating
     return life_support_rating
