@@ -1,6 +1,5 @@
 # https://adventofcode.com/2021/day/3
 # region ---- imports ----
-import re
 import os
 import sys
 
