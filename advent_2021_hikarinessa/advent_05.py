@@ -30,7 +30,7 @@ class HydrothermalVent:
         self.x2 = int(parse.group(3))
         self.y2 = int(parse.group(4))
         self.orthogonal = self.is_orthogonal()
-        self.coords = self.coordinates()
+        self.coords = self.coordinates2()
 
     def print_vent(self):
         print(self.x1, ",", self.y1, " -> ", self.x2, ",", self.y2)
