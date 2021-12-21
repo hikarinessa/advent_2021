@@ -1,5 +1,5 @@
 # https://adventofcode.com/2021/day/4
-# region ---- imports ----
+# region ---- imports and inputs ----
 import os
 import sys
 import pprint
@@ -27,8 +27,12 @@ TEST_INPUT = ['7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3
               '18  8 23 26 20',
               '22 11 13  6  5',
               '2  0 12  3  7']
-# endregion --------------
+# endregion -------------------------
 debug = False
+
+# BINGO
+# The score of the board is calculated by finding the sum of all unmarked numbers on that board.
+# Then, multiply that sum by the number that was just called when the board won.
 
 
 class Board:
@@ -46,7 +50,6 @@ class Board:
             for i, item in enumerate(row):
                 if item == number:
                     row[i] = None
-        # if debug: self.print_state()
 
     def check_win(self):
         for row in self.rows_columns:
@@ -96,6 +99,7 @@ def process_input(input):
 
 
 # part 1
+# Get the score of the board that wins
 def find_winner(numbers, boards):
     for number in numbers:
         if debug: print(number)
@@ -106,6 +110,7 @@ def find_winner(numbers, boards):
 
 
 # part 2
+# Get the score of the board that loses
 def find_loser(numbers, boards):
     boards_copy = boards.copy()
     while len(boards_copy) > 1:

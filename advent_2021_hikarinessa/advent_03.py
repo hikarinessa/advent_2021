@@ -1,39 +1,35 @@
 # https://adventofcode.com/2021/day/3
-# region ---- imports ----
+# region ---- imports and inputs ----
 import os
 import sys
 
 with open(os.path.join(sys.path[0], "Inputs/advent_03_input.txt"), "r") as raw_input:
     INPUT = raw_input.read().splitlines()
 
-TEST_INPUT = ['00100',
-              '11110',
-              '10110',
-              '10111',
-              '10101',
-              '01111',
-              '00111',
-              '11100',
-              '10000',
-              '11001',
-              '00010',
-              '01010']
-# endregion --------------
+TEST_INPUT = ['00100', '11110', '10110', '10111', '10101', '01111',
+              '00111', '11100', '10000', '11001', '00010', '01010']
+# TEST_INPUT results: part 1 = 198, part 2 = 230
+# endregion -------------------------
 
 # to convert binary to decimal: print(int('01001',2))
 
 
-# part 1
+# region ---- part 1 instructions ----
+# The power consumption can then be found by multiplying the gamma rate by the epsilon rate.
+# The gamma rate can be determined by finding the most common bit in the corresponding position
+# of all numbers in the diagnostic report.
+# The epsilon rate can be determined by finding the least common bit (...)
+# endregion --------------------------
 def find_rates_one(input):
     gamma_rate = ''
     epsilon_rate = ''
-    halflength = len(input)/2
+    half_length = len(input)/2
 
     for i in range(0, len(input[0])):
         bit = 0
         for j in input:
             bit += int(j[i])
-        if bit >= halflength:
+        if bit >= half_length:
             gamma_rate += '1'
             epsilon_rate += '0'
         else:
@@ -44,7 +40,21 @@ def find_rates_one(input):
     return power_consumption
 
 
-# part 2
+# region ---- part 2 instructions ----
+# Next verify the life support rating, which can be determined
+# by multiplying the oxygen generator rating by the CO2 scrubber rating.
+# - Keep only numbers selected by the bit criteria for the type of rating value for which you are searching.
+# - Discard numbers which do not match the bit criteria.
+#   If you only have one number left, stop; this is the rating value for which you are searching.
+# - Otherwise, repeat the process, considering the next bit to the right.
+# The bit criteria depends on which type of rating value you want to find:
+# - To find oxygen generator rating, determine the most common value (0 or 1) in the current bit position,
+#   and keep only numbers with that bit in that position.
+#   If 0 and 1 are equally common, keep values with a 1 in the position being considered.
+# - To find CO2 scrubber rating, determine the least common value (0 or 1) in the current bit position,
+#   and keep only numbers with that bit in that position. If 0 and 1 are equally common,
+#   keep values with a 0 in the position being considered
+# endregion --------------------------
 def find_rates_two(input):
     oxygen_generator_rating = input.copy()
     co2_scrubber_rating = input.copy()
