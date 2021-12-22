@@ -97,7 +97,7 @@ def magic(dots_grid, folds, nr=0):
 if __name__ == "__main__":
     dots_grid, folds = parse_input(INPUT)
     # pprint.pprint(dots_grid)
-    print('Part 1 =', magic(dots_grid, folds, 1)[0])  #
+    print('Part 1 =', magic(dots_grid, folds, 1)[0])  # 781
     print('*'*30)
-    print('Part 2 vvvvv')  #
+    print('Part 2 vvvvv')  # PERCGJPB
     pprint.pprint(magic(dots_grid, folds)[1])
